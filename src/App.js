@@ -1,9 +1,7 @@
+import React from 'react';
 import './App.css';
 import Navbar from './components/layout/Navbar';
-import UserState from './components/user/UserState';
-import React from 'react';
-import UserSearch from './components/user/UserSearch';
-import Alert from './components/layout/Alert';
+import Home from './components/pages/Home';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import About from './components/pages/About';
 import User from './components/user/User';
@@ -21,15 +19,9 @@ const App = () => {
             <div className="container">
               <Switch>
                 <Route exact path="/">
-                  <Alert />
-                  <UserSearch />
-                  <UserState />
+                  <Home />
                 </Route>
-                <Route
-                  exact
-                  path="/user/:username"
-                  render={(props) => <User {...props} />}
-                />
+                <Route exact path="/user/:username" component={User} />
                 <Route exact path="/about" component={About} />
                 <Route component={NotFound} />
               </Switch>
